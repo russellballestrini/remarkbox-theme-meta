@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>{% block title %}{{ request.domain }}{% endblock %}</title>
+  <meta charset="utf-8" />
+ 
+  <!-- this makes mobile pretty...  -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#030408">
+
+  {% include 'snippets/stylesheet-includes.j2' %}
+
+  <link rel="stylesheet" href="/static/theme/westworld/css/normalize.css">
+  <link rel="stylesheet" href="/static/theme/westworld/css/skeleton.css">
+  <link rel="stylesheet" href="/static/theme/westworld/css/custom.css">
+
+  {% include 'snippets/javascript-includes.j2' %}
+  
+</head>
+
+<body>
+
+{% set main_domain = "https://www.remarkbox.com" %}
+
+<div class="nav hidden-on-tablet">
+  <div>
+    <a href="{{ main_domain }}"><img src="/static/theme/westworld/img/remarkbox-minified.png" class="navlogo" alt="Remarkbox Logo" /></a>
+    
+    <div class="navlinks">
+      <a class="navlink" href="{{ main_domain }}#plans">Plans</a>
+      <a class="navlink" href="{{ main_domain }}#faq">FAQ</a>
+      <a class="navlink" href="{{ main_domain }}#about">About</a>
+      <a class="navlink" href="{{ main_domain }}#remarkbox-demo">Demo</a>
+      <a class="button" href="{{ main_domain }}#beta">Log in</a>
+      <a class="button red" href="{{ main_domain }}#beta">Join</a>
+    </div>
+  </div>
+</div>
+
+<noscript>
+  <style>
+    .js-only {display: none;}
+  </style>
+</noscript>
+
+<div id="alerts">
+{%- for message, level in request.session.pop_flash() %}
+<div class="alert alert-{{level}}" onclick="this.style.display='none'" name="alert">
+    <label class="close js-only" alt="dismiss" title="dismiss">x</label>
+    {{message}}
+</div>
+{%- endfor %}
+</div>
+
+<div class="searchbox">
+  {% include 'snippets/search.j2' %}
+</div>
+
+<div id="remarkbox-menu">
+{%- block menu %}
+  <a href="/">home</a> |
+  <a href="/new">new thread</a> |
+
+  {%- if request.user %}
+  {{request.user.name}} <a href="/log-out">[log out]</a>
+  {% else %}
+  <a href="/join-or-log-in">join-or-log-in</a>
+  {%- endif %}
+{%- endblock %}
+</div>
+
+<br>
+<br>
+
+<div class="main">
+{% block content %}
+{% endblock %}
+</div>
+
+<div id="remarkbox-footer">
+  <br />
+  <br />
+  <center>
+  {% include 'snippets/powered-by.j2' %}
+  <center>
+</div>
+
+</body>
+</html>
