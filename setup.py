@@ -9,7 +9,7 @@
 from setuptools import setup, find_packages
 
 setup(name='remarkbox_theme_meta',
-      version='0.2.0',
+      version='0.2.1',
       description='remarkbox theme for meta and faq',
       classifiers=[
         "Programming Language :: Python",

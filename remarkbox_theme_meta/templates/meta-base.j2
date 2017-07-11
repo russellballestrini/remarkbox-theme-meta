@@ -6,25 +6,25 @@
  
   <!-- this makes mobile pretty...  -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#030408">
+  <meta name="theme-color" content="#D40000">
 
   {% include 'snippets/stylesheet-includes.j2' %}
 
-  <link rel="stylesheet" href="/static/theme/westworld/css/normalize.css">
-  <link rel="stylesheet" href="/static/theme/westworld/css/skeleton.css">
-  <link rel="stylesheet" href="/static/theme/westworld/css/custom.css">
+  <link rel="stylesheet" href="/static/theme/meta/css/normalize.css">
+  <link rel="stylesheet" href="/static/theme/meta/css/skeleton.css">
+  <link rel="stylesheet" href="/static/theme/meta/css/meta.css">
+  <link rel="stylesheet" href="/static/theme/meta/css/diff.css">
 
   {% include 'snippets/javascript-includes.j2' %}
   
 </head>
 
-<body>
+<body class="remarkbox-body has-docked-nav">
 
 {% set main_domain = "https://www.remarkbox.com" %}
 
-<div class="nav hidden-on-tablet">
-  <div>
-    <a href="{{ main_domain }}"><img src="/static/theme/westworld/img/remarkbox-minified.png" class="navlogo" alt="Remarkbox Logo" /></a>
+<div class="navbar hidden-on-tablet">
+    <a href="{{ main_domain }}" class="navlogolink"><img src="/static/theme/meta/img/remarkbox-minified.png" class="navlogo" alt="Remarkbox Logo" /></a>
     
     <div class="navlinks">
       <a class="navlink" href="{{ main_domain }}#plans">Plans</a>
@@ -34,14 +34,44 @@
       <a class="button" href="{{ main_domain }}#beta">Log in</a>
       <a class="button red" href="{{ main_domain }}#beta">Join</a>
     </div>
-  </div>
 </div>
+
+<div class="navother">
+    <div class="searchbox">
+      {% include 'snippets/search.j2' %}
+    </div>
+    
+    <div id="remarkbox-menu">
+    {%- block menu %}
+      <a href="/">home</a> |
+      <a href="/new">new thread</a> |
+    
+      {%- if request.user %}
+      {{request.user.name}} <a href="/log-out">[log out]</a>
+      {% else %}
+      <a href="/join-or-log-in">join-or-log-in</a>
+      {%- endif %}
+    {%- endblock %}
+    </div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 <noscript>
   <style>
     .js-only {display: none;}
   </style>
 </noscript>
+
+<div class="container" style="max-width: 960px">
+
+  <div class="row">
 
 <div id="alerts">
 {%- for message, level in request.session.pop_flash() %}
@@ -52,25 +82,7 @@
 {%- endfor %}
 </div>
 
-<div class="searchbox">
-  {% include 'snippets/search.j2' %}
-</div>
-
-<div id="remarkbox-menu">
-{%- block menu %}
-  <a href="/">home</a> |
-  <a href="/new">new thread</a> |
-
-  {%- if request.user %}
-  {{request.user.name}} <a href="/log-out">[log out]</a>
-  {% else %}
-  <a href="/join-or-log-in">join-or-log-in</a>
-  {%- endif %}
-{%- endblock %}
-</div>
-
-<br>
-<br>
+<h5>{{ request.namespace.name.split('.')[0] }}</h5>
 
 <div class="main">
 {% block content %}
@@ -83,6 +95,11 @@
   <center>
   {% include 'snippets/powered-by.j2' %}
   <center>
+</div>
+
+  <!-- end of row -->
+  </div>
+<!-- end of container -->
 </div>
 
 </body>
