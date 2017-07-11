@@ -1,3 +1,7 @@
+h2 {
+    font-size: 3.0rem;
+}
+
 a, a:visited, a:hover {
     color: #292929;
     opacity: .5;

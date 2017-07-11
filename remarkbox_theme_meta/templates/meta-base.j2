@@ -48,7 +48,7 @@
     
     <div id="remarkbox-menu">
     {%- block menu %}
-      <a href="/">home</a> |
+    <a href="/">{{ request.namespace.name }}</a> |
       <a href="/new">new thread</a> |
    
       {%- if request.user %}
