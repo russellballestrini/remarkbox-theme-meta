@@ -31,8 +31,13 @@
       <a class="navlink" href="{{ main_domain }}#faq">FAQ</a>
       <a class="navlink" href="{{ main_domain }}#about">About</a>
       <a class="navlink" href="{{ main_domain }}#remarkbox-demo">Demo</a>
-      <a class="button" href="{{ main_domain }}#beta">Log in</a>
-      <a class="button red" href="{{ main_domain }}#beta">Join</a>
+      {%- if request.user %}
+      <a class="button" href="#">{{ request.user.name }}</a>
+      <a class="button red" href="/log-out">Log out</a>
+      {%- else %}
+      <a class="button" href="/join-or-log-in">Log in</a>
+      <a class="button red" href="/join-or-log-in">Join</a>
+      {%- endif %}
     </div>
 </div>
 
@@ -45,9 +50,9 @@
     {%- block menu %}
       <a href="/">home</a> |
       <a href="/new">new thread</a> |
-    
+   
       {%- if request.user %}
-      {{request.user.name}} <a href="/log-out">[log out]</a>
+      {{ request.user.name }} <a href="/log-out">[log out]</a>
       {% else %}
       <a href="/join-or-log-in">join-or-log-in</a>
       {%- endif %}
@@ -55,6 +60,7 @@
     </div>
 </div>
 
+<br>
 <br>
 <br>
 <br>

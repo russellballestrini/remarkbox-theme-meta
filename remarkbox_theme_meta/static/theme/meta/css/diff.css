@@ -68,3 +68,44 @@ input {
     padding-left: 60px;
     padding-top: 5px;
 }
+
+
+ol, ul {
+    padding-left: 40px;
+}
+
+ul {
+    list-style: outside;
+}
+
+/* alerts */
+#alerts {
+  width: 36%;
+  margin: auto;
+  right: 50%;
+  margin-right: -18%;
+  position: fixed;
+  z-index: 100;
+}
+
+.close {
+  margin-left: 10px;
+  float: left;
+}
+
+.alert {
+  text-align: center;
+  color: #ffffff; 
+  font-weight: bold; 
+  border-radius: 6px;
+  margin-bottom: 6px;
+  padding: 6px;
+}
+
+.alert-warning, .alert-error {
+  background-color: #CB0003;
+}
+
+.alert-success, .alert-notice {
+  background-color: #517DA4;
+}
