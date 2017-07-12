@@ -73,6 +73,9 @@ input {
     padding-top: 5px;
 }
 
+#reply {
+  margin-top: 25px;
+}
 
 ol, ul {
     padding-left: 40px;

@@ -23,12 +23,14 @@
 
 {% set main_domain = "https://www.remarkbox.com" %}
 
+{% if request.mode != 'embed' %}
 <div class="navbar hidden-on-tablet">
     <a href="{{ main_domain }}" class="navlogolink"><img src="/static/theme/meta/img/remarkbox-minified.png" class="navlogo" alt="Remarkbox Logo" /></a>
     
     <div class="navlinks">
       <a class="navlink" href="{{ main_domain }}#plans">Plans</a>
-      <a class="navlink" href="{{ main_domain }}#faq">FAQ</a>
+      <a class="navlink" href="https://faq.remarkbox.com">Faq</a>
+      <a class="navlink" href="https://meta.remarkbox.com">Meta</a>
       <a class="navlink" href="{{ main_domain }}#about">About</a>
       <a class="navlink" href="{{ main_domain }}#remarkbox-demo">Demo</a>
       {%- if request.user %}
@@ -38,18 +40,28 @@
       <a class="button" href="/join-or-log-in">Log in</a>
       <a class="button red" href="/join-or-log-in">Join</a>
       {%- endif %}
+      &nbsp; &nbsp; &nbsp;
     </div>
 </div>
+{% endif %}
 
 <div class="navother">
+    {% if request.mode != 'embed' %}
     <div class="searchbox">
       {% include 'snippets/search.j2' %}
     </div>
+    {% endif %}
     
     <div id="remarkbox-menu">
     {%- block menu %}
-    <a href="/">{{ request.namespace.name }}</a> |
-      <a href="/new">new thread</a> |
+    <a href="/">{{ request.namespace.name }}</a>
+    &nbsp;
+    | 
+    &nbsp;
+    <a href="/new">new thread</a>
+    &nbsp;
+    | 
+    &nbsp;
    
       {%- if request.user %}
       {{ request.user.name }} <a href="/log-out">[log out]</a>
@@ -60,11 +72,14 @@
     </div>
 </div>
 
+{% if request.mode != 'embed' %}
 <br>
 <br>
 <br>
 <br>
-<br>
+{% else %}
+<style>.navother {top: 0px;}</style>
+{%- endif %}
 <br>
 <br>
 <br>
@@ -87,8 +102,6 @@
 </div>
 {%- endfor %}
 </div>
-
-<h5>{{ request.namespace.name.split('.')[0] }}</h5>
 
 <div class="main">
 {% block content %}
