@@ -1,3 +1,4 @@
+{%- import 'snippets/snippets.j2' as snippets with context -%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -64,7 +65,7 @@
     &nbsp;
    
       {%- if request.user %}
-      {{ request.user.name }} <a href="/log-out">[log out]</a>
+      {{ snippets.user_link(request.user) }} <a href="/log-out">[log out]</a>
       {% else %}
       <a href="/join-or-log-in">join-or-log-in</a>
       {%- endif %}
