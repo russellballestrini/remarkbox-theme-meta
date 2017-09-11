@@ -36,7 +36,6 @@
       <a class="navlink" href="{{ main_domain }}#remarkbox-demo">Demo</a>
       {%- if request.user %}
       {{ snippets.user_link(request.user, class='button') }}
-      <a class="button" href="#">{{ request.user.name }}</a>
       <a class="button red" href="/log-out">Log out</a>
       {%- else %}
       <a class="button" href="/join-or-log-in">Log in</a>
