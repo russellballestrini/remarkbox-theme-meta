@@ -63,12 +63,12 @@
     &nbsp;
     | 
     &nbsp;
-    <a href="/u/namespaces">my namespaces</a>
-    &nbsp;
-    | 
-    &nbsp;
    
       {%- if request.user %}
+      <a href="/u/namespaces">my namespaces</a>
+      &nbsp;
+      |
+      &nbsp;
       {{ snippets.user_link(request.user) }} <a href="/log-out">[log out]</a>
       {% else %}
       <a href="/join-or-log-in">join-or-log-in</a>
