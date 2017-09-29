@@ -55,11 +55,15 @@
     
     <div id="remarkbox-menu">
     {%- block menu %}
+    {% if request.namespace.name == request.domain %}
     <a href="/">{{ request.namespace.name }}</a>
+    {% else %}
+    <a href="/namespace/{{ request.namespace.name }}">{{ request.namespace.name }}</a>
+    {% endif %}
     &nbsp;
     | 
     &nbsp;
-    <a href="/new">new thread</a>
+    <a href="/u/namespaces">my namespaces</a>
     &nbsp;
     | 
     &nbsp;
