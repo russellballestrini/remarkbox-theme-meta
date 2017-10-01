@@ -29,15 +29,15 @@
     <a href="{{ main_domain }}" class="navlogolink"><img src="/static/theme/meta/img/remarkbox-minified.png" class="navlogo" alt="Remarkbox Logo" /></a>
     
     <div class="navlinks">
-      <a class="navlink" href="{{ main_domain }}#plans">Plans</a>
       <a class="navlink" href="https://faq.remarkbox.com">Faq</a>
       <a class="navlink" href="https://meta.remarkbox.com">Meta</a>
-      <a class="navlink" href="{{ main_domain }}#about">About</a>
-      <a class="navlink" href="{{ main_domain }}#remarkbox-demo">Demo</a>
       {%- if request.user %}
       {{ snippets.user_link(request.user, class='button') }}
-      <a class="button red" href="/log-out">Log out</a>
+      <a class="button red" href="/u/namespaces">Setup</a>
       {%- else %}
+      <a class="navlink" href="{{ main_domain }}#about">About</a>
+      <a class="navlink" href="{{ main_domain }}#remarkbox-demo">Demo</a>
+      <a class="navlink" href="{{ main_domain }}#plans">Plans</a>
       <a class="button" href="/join-or-log-in">Log in</a>
       <a class="button red" href="/join-or-log-in">Join</a>
       {%- endif %}
@@ -58,7 +58,7 @@
     {% if request.namespace.name == request.domain %}
     <a href="/">{{ request.namespace.name }}</a>
     {% else %}
-    <a href="/namespace/{{ request.namespace.name }}">{{ request.namespace.name }}</a>
+    <a href="/ns/{{ request.namespace.name }}">{{ request.namespace.name }}</a>
     {% endif %}
     &nbsp;
     | 
