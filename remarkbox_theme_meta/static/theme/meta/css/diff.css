@@ -85,17 +85,17 @@ ul {
 
 /* alerts */
 #alerts {
-  width: 36%;
+  width: 60%;
+  right: 40%;
   margin: auto;
-  right: 50%;
-  margin-right: -18%;
+  margin-right: -20%;
   position: fixed;
   z-index: 100;
 }
 
 .close {
-  margin-left: 10px;
-  float: left;
+  margin-right: 10px;
+  float: right;
 }
 
 .alert {
