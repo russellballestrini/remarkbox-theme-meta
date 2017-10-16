@@ -125,7 +125,9 @@ ul {
 input.rb-submit.search {
   height: 28px;
   line-height: 28px;
-  margin-left: 10px
+  margin-left: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 div.container.main {
@@ -139,6 +141,7 @@ div.container.main {
   #keyword {
     margin-left 10px;
     margin-right: 10px;
+    width: 50%;
   }
   #remarkbox-menu {
     padding-left: 30px;
@@ -146,6 +149,11 @@ div.container.main {
   div.container.main {
     margin-top: 80px;
   }
+}
 
+@media screen and (max-width:568px) {
+  div.container.main {
+    margin-top: 120px;
+  }
 }
 
