@@ -138,10 +138,12 @@ div.container.main {
   .navother {
     top: 0px;
   }
+  .searchbox {
+    padding-right: 30px;
+  }
   #keyword {
     margin-left 10px;
     margin-right: 10px;
-    width: 50%;
   }
   #remarkbox-menu {
     padding-left: 30px;
