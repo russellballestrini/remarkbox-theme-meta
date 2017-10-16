@@ -54,6 +54,8 @@
     {% endif %}
     
     <div id="remarkbox-menu">
+    <span class="avoidwrap">
+    <a href="{{ main_domain }}" class="navlogolink"><img src="/static/img/remarkbox-logo.png" width="16px" class="shown-on-tablet navlogotiny"></a>
     {%- block menu %}
     {% if request.namespace.name == request.domain %}
     <a href="/">{{ request.namespace.name }}</a>
@@ -63,16 +65,21 @@
     &nbsp;
     | 
     &nbsp;
+    </span>
    
-      {%- if request.user.authenticated %}
+    {%- if request.user.authenticated %}
+      <span class="hidden-on-tablet">
       <a href="/u/namespaces">my namespaces</a>
       &nbsp;
       |
       &nbsp;
+      </span>
+    <span class="avoidwrap">
       {{ snippets.user_link(request.user) }} <a href="/log-out">[log out]</a>
-      {% else %}
+    </span>
+    {% else %}
       <a href="/join-or-log-in">join-or-log-in</a>
-      {%- endif %}
+    {%- endif %}
     {%- endblock %}
     </div>
 </div>

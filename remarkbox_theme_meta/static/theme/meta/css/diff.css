@@ -114,3 +114,30 @@ ul {
 .alert-success, .alert-notice {
   background-color: #517DA4;
 }
+
+.navlogotiny {
+  vertical-align: middle;
+  padding-left: 10px;
+  padding-right: 10px;
+  float: left;
+}
+
+input.rb-submit.search {
+  height: 28px;
+  line-height: 28px;
+  margin-left: 10px
+}
+
+@media screen and (max-width:750px) {
+  .navother {
+    top: 0px;
+  }
+  #keyword {
+    margin-left 10px;
+    margin-right: 10px;
+  }
+  #remarkbox-menu {
+    padding-left: 30px;
+  }
+}
+
