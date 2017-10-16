@@ -144,6 +144,12 @@ code, kbd, pre, samp, .MathJax_Display {
   width: unset !important;
 }
 
+pre.preview {
+  background-color: unset;
+  border-radius: unset;
+  border: unset;
+  padding: unset;
+}
 
 @media screen and (max-width:750px) {
   .navother {
