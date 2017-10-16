@@ -128,6 +128,10 @@ input.rb-submit.search {
   margin-left: 10px
 }
 
+div.container.main {
+  margin-top: 180px;
+}
+
 @media screen and (max-width:750px) {
   .navother {
     top: 0px;
@@ -139,5 +143,9 @@ input.rb-submit.search {
   #remarkbox-menu {
     padding-left: 30px;
   }
+  div.container.main {
+    margin-top: 80px;
+  }
+
 }
 
