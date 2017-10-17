@@ -134,7 +134,7 @@ div.container.main {
   margin-top: 180px;
 }
 
-code, kbd, pre, samp, .MathJax_Display {
+pre, .MathJax_Display {
   background-color: #fcf9f9;
   padding: 15px;
   border-radius: 8px;
