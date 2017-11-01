@@ -144,11 +144,9 @@ pre, .MathJax_Display {
   width: unset !important;
 }
 
-pre.preview {
-  background-color: unset;
-  border-radius: unset;
-  border: unset;
-  padding: unset;
+.preview-raw-markdown {
+  line-height: 1.3;
+  padding-bottom: 9px;
 }
 
 @media screen and (max-width:750px) {
