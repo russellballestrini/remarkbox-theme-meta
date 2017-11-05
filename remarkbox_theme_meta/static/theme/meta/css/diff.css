@@ -2,9 +2,8 @@ h2 {
     font-size: 3.0rem;
 }
 
-a, a:visited, a:hover {
+.node a, .node a:visited, .node a:hover {
     color: #292929;
-    opacity: .5;
 }
 
 a:hover, a.navlogolink, a.navlogolink:visited {
@@ -18,6 +17,11 @@ a.button {
 button {
     height: 28px;
     line-height: 28px;
+}
+
+button.link {
+    letter-spacing: unset;
+    text-transform: unset;
 }
 
 .common-text-input, #keyword {
