@@ -136,12 +136,19 @@ ul {
   float: left;
 }
 
+.small-button {
+  height: 28px;
+  line-height: 28px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
 input.rb-submit.search {
   height: 28px;
   line-height: 28px;
-  margin-left: 10px;
   padding-left: 15px;
   padding-right: 15px;
+  margin-left: 10px;
 }
 
 div.container.main {
