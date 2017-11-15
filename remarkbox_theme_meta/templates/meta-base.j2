@@ -24,6 +24,12 @@
 
 {% set main_domain = "https://www.remarkbox.com" %}
 
+<noscript>
+  <style>
+    .js-only {display: none;}
+  </style>
+</noscript>
+
 {% if request.mode != 'embed' %}
 <div class="navbar hidden-on-tablet">
     <a href="{{ main_domain }}" class="navlogolink"><img src="/static/theme/meta/img/remarkbox-minified.png" class="navlogo" alt="Remarkbox Logo" /></a>
@@ -56,30 +62,37 @@
     <span class="avoidwrap">
     <a href="{{ main_domain }}" class="navlogolink"><img src="/static/img/remarkbox-logo.png" width="16px" class="shown-on-tablet navlogotiny"></a>
     {%- block menu %}
-    {% if request.namespace.name == request.domain %}
-    <a href="/">{{ request.namespace.name }}</a>
+    &nbsp;
+    </span>
+
+  {%- if request.user.authenticated %}
+  <a href="/u/namespaces" onclick="toggle('my-namespaces-div', 'my-namespaces-link', '{{ request.namespace.name }} &#9662;', '{{ request.namespace.name }} &#9652;'); return false;" id="my-namespaces-link">{{ request.namespace.name }} <span class="js-only">&#9662;</span></a>
+
+  <div id="my-namespaces-div" class="my-namespaces-div">
+  {% for namespace in request.user.namespaces %}
+    {% if namespace.name == request.domain %}
+    <a href="/">{{ namespace.name }}</a>
     {% else %}
-    <a href="/ns/{{ request.namespace.name }}">{{ request.namespace.name }}</a>
+    <a href="/ns/{{ namespace.name }}">{{ namespace.name }}</a>
     {% endif %}
-    &nbsp;
-    | 
-    &nbsp;
-    </span>
-   
-    {%- if request.user.authenticated %}
-      <span class="hidden-on-tablet">
-      <a href="/u/namespaces">my namespaces</a>
-      &nbsp;
-      |
-      &nbsp;
-      </span>
-    <span class="avoidwrap">
-      {{ snippets.user_link(request.user) }} <a href="/log-out">[log out]</a>
-    </span>
-    {% else %}
-      <a href="/join-or-log-in">join-or-log-in</a>
-    {%- endif %}
-    {%- endblock %}
+    <br/>
+  {% endfor %}
+  </div>
+  &nbsp;
+  | 
+  &nbsp;
+
+  <span class="avoidwrap">
+  {{ snippets.user_link(request.user) }} <a href="/log-out">[log out]</a>
+  </span>
+
+  {% else %}
+
+  <a href="/join-or-log-in">join-or-log-in</a>
+
+  {%- endif %}
+{%- endblock %}
+
     </div>
 </div>
 
@@ -88,12 +101,6 @@
 {% else %}
 <style>.navother {top: 0px;}</style>
 {%- endif %}
-
-<noscript>
-  <style>
-    .js-only {display: none;}
-  </style>
-</noscript>
 
 <div class="container main" style="max-width: 960px">
 
