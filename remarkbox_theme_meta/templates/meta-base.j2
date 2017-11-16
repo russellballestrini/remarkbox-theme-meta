@@ -70,14 +70,11 @@
 
   <div id="my-namespaces-div" class="my-namespaces-div">
 
-  {% if request.namespace.name == request.domain %}
-  <a href="/">{{ request.namespace.name }}</a>
-  {% else %}
-  <a href="/ns/{{ request.namespace.name }}">{{ request.namespace.name }}</a>
-  {% endif %}
+  <a href="/">{{ request.domain }}</a>
   <br/>
+
   {% for namespace in request.user.namespaces %}
-    {% if namespace.name != request.namespace.name %}
+    {% if namespace.name != request.domain %}
     <a href="/ns/{{ namespace.name }}">{{ namespace.name }}</a>
     <br/>
     {% endif %}
