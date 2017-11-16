@@ -69,15 +69,20 @@
   <a href="/u/namespaces" onclick="toggle('my-namespaces-div', 'my-namespaces-link', '&#9658 {{ request.namespace.name }}', '&#9662; &nbsp; {{ request.namespace.name }}'); return false;" id="my-namespaces-link"><span class="js-only">&#9658; </span>{{ request.namespace.name }}</a>
 
   <div id="my-namespaces-div" class="my-namespaces-div">
-    <br/>
+
+  {% if request.namespace.name == request.domain %}
+  <a href="/">{{ request.namespace.name }}</a>
+  {% else %}
+  <a href="/ns/{{ request.namespace.name }}">{{ request.namespace.name }}</a>
+  {% endif %}
+  <br/>
   {% for namespace in request.user.namespaces %}
-    {% if namespace.name == request.domain %}
-    <a href="/">{{ namespace.name }}</a>
-    {% else %}
+    {% if namespace.name != request.namespace.name %}
     <a href="/ns/{{ namespace.name }}">{{ namespace.name }}</a>
-    {% endif %}
     <br/>
+    {% endif %}
   {% endfor %}
+
     <br/>
     <center>
     <a href="/u/namespaces" class="button small-button">+ New Namespace</a>
