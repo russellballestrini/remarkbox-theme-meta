@@ -85,8 +85,9 @@ button.link {
 
 .my-namespaces-div {
   background-color: #fcf9f9;
-  padding: 10px;
-  margin-top: 0px;
+  padding: 20px;
+  padding-bottom: 10px;
+  padding-top: 30px;
 }
 
 ol, ul {
