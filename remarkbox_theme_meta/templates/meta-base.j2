@@ -23,6 +23,7 @@
 <body class="remarkbox-body has-docked-nav">
 
 {% set main_domain = "https://www.remarkbox.com" %}
+{% set main_join_domain = request.app.join_domain | default("https://my.remarkbox.com") %}
 
 <noscript>
   <style>
@@ -39,13 +40,13 @@
       <a class="navlink" href="https://meta.remarkbox.com">Meta</a>
       {%- if request.user %}
       {{ snippets.user_link(request.user, class='button') }}
-      <a class="button red" href="/u/namespaces">setup</a>
+      <a class="button red" href="{{ main_join_domain }}/u/namespaces">setup</a>
       {%- else %}
       <a class="navlink" href="{{ main_domain }}#about">About</a>
       <a class="navlink" href="{{ main_domain }}#remarkbox-demo">Demo</a>
       <a class="navlink" href="{{ main_domain }}#plans">Plans</a>
-      <a class="button" href="/join-or-log-in">Log in</a>
-      <a class="button red" href="/join-or-log-in">Join</a>
+      <a class="button" href="{{ main_join_domain }}/join-or-log-in">Log in</a>
+      <a class="button red" href="{{ main_join_domain }}/join-or-log-in">Join</a>
       {%- endif %}
     </div>
 </div>
@@ -66,7 +67,7 @@
     </span>
 
   {%- if request.user.authenticated %}
-  <a href="/u/namespaces" onclick="toggle('my-namespaces-div', 'my-namespaces-link', '&#9658 {{ request.namespace.name }}', '&#9662; &nbsp; {{ request.namespace.name }}'); return false;" id="my-namespaces-link"><span class="js-only">&#9658; </span>{{ request.namespace.name }}</a>
+  <a href="{{ main_join_domain }}/u/namespaces" onclick="toggle('my-namespaces-div', 'my-namespaces-link', '&#9658 {{ request.namespace.name }}', '&#9662; &nbsp; {{ request.namespace.name }}'); return false;" id="my-namespaces-link"><span class="js-only">&#9658; </span>{{ request.namespace.name }}</a>
 
   <div id="my-namespaces-div" class="my-namespaces-div">
 
@@ -75,14 +76,14 @@
 
   {% for namespace in request.user.namespaces %}
     {% if namespace.name != request.domain %}
-    <a href="/ns/{{ namespace.name }}">{{ namespace.name }}</a>
+    <a href="{{ main_join_domain }}/ns/{{ namespace.name }}">{{ namespace.name }}</a>
     <br/>
     {% endif %}
   {% endfor %}
 
     <br/>
     <center>
-    <a href="/u/namespaces" class="button">setup</a>
+    <a href="{{ main_join_domain }}/u/namespaces" class="button">setup</a>
     </center>
   </div>
   &nbsp;
@@ -95,7 +96,7 @@
 
   {% else %}
 
-  <a href="/join-or-log-in">join-or-log-in</a>
+  <a href="{{ main_join_domain }}/join-or-log-in">join-or-log-in</a>
 
   {%- endif %}
 {%- endblock %}

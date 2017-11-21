@@ -137,11 +137,16 @@ ul {
   float: left;
 }
 
-.small-button {
+.small-button,
+input.small-button {
   height: 28px;
   line-height: 28px;
   padding-left: 15px;
   padding-right: 15px;
+}
+
+form.inline {
+  display: inline;
 }
 
 input.rb-submit.search {
