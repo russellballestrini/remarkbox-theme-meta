@@ -22,8 +22,8 @@
 
 <body class="remarkbox-body has-docked-nav">
 
-{% set main_domain = "https://www.remarkbox.com" %}
-{% set main_join_domain = request.app.join_domain | default("https://my.remarkbox.com") %}
+{% set domain_app = request.app.domain_app | default("") %}
+{% set domain_marketing = request.app.domain_marketing | default("/") %}
 
 <noscript>
   <style>
@@ -33,20 +33,20 @@
 
 {% if request.mode != 'embed' %}
 <div class="navbar hidden-on-tablet">
-    <a href="{{ main_domain }}" class="navlogolink"><img src="/static/theme/meta/img/remarkbox-minified.png" class="navlogo" alt="Remarkbox Logo" /></a>
+    <a href="{{ domain_marketing }}" class="navlogolink"><img src="/static/theme/meta/img/remarkbox-minified.png" class="navlogo" alt="Remarkbox Logo" /></a>
     
     <div class="navlinks">
       <a class="navlink" href="https://faq.remarkbox.com">Faq</a>
       <a class="navlink" href="https://meta.remarkbox.com">Meta</a>
       {%- if request.user %}
       {{ snippets.user_link(request.user, class='button') }}
-      <a class="button red" href="{{ main_join_domain }}/u/namespaces">setup</a>
+      <a class="button red" href="{{ domain_app }}/u/namespaces">setup</a>
       {%- else %}
-      <a class="navlink" href="{{ main_domain }}#about">About</a>
-      <a class="navlink" href="{{ main_domain }}#remarkbox-demo">Demo</a>
-      <a class="navlink" href="{{ main_domain }}#plans">Plans</a>
-      <a class="button" href="{{ main_join_domain }}/join-or-log-in">Log in</a>
-      <a class="button red" href="{{ main_join_domain }}/join-or-log-in">Join</a>
+      <a class="navlink" href="{{ domain_marketing }}#about">About</a>
+      <a class="navlink" href="{{ domain_marketing }}#remarkbox-demo">Demo</a>
+      <a class="navlink" href="{{ domain_marketing }}#plans">Plans</a>
+      <a class="button" href="{{ domain_app }}/join-or-log-in">Log in</a>
+      <a class="button red" href="{{ domain_app }}/join-or-log-in">Join</a>
       {%- endif %}
     </div>
 </div>
@@ -61,13 +61,13 @@
     
     <div id="remarkbox-menu">
     <span class="avoidwrap">
-    <a href="{{ main_domain }}" class="navlogolink"><img src="/static/img/remarkbox-logo.png" width="16px" class="shown-on-tablet navlogotiny"></a>
+    <a href="{{ domain_marketing }}" class="navlogolink"><img src="/static/img/remarkbox-logo.png" width="16px" class="shown-on-tablet navlogotiny"></a>
     {%- block menu %}
     &nbsp;
     </span>
 
   {%- if request.user.authenticated %}
-  <a href="{{ main_join_domain }}/u/namespaces" onclick="toggle('my-namespaces-div', 'my-namespaces-link', '&#9658 {{ request.namespace.name }}', '&#9662; &nbsp; {{ request.namespace.name }}'); return false;" id="my-namespaces-link"><span class="js-only">&#9658; </span>{{ request.namespace.name }}</a>
+  <a href="{{ domain_app }}/u/namespaces" onclick="toggle('my-namespaces-div', 'my-namespaces-link', '&#9658 {{ request.namespace.name }}', '&#9662; &nbsp; {{ request.namespace.name }}'); return false;" id="my-namespaces-link"><span class="js-only">&#9658; </span>{{ request.namespace.name }}</a>
 
   <div id="my-namespaces-div" class="my-namespaces-div">
 
@@ -76,14 +76,14 @@
 
   {% for namespace in request.user.namespaces %}
     {% if namespace.name != request.domain %}
-    <a href="{{ main_join_domain }}/ns/{{ namespace.name }}">{{ namespace.name }}</a>
+    <a href="{{ domain_app }}/ns/{{ namespace.name }}">{{ namespace.name }}</a>
     <br/>
     {% endif %}
   {% endfor %}
 
     <br/>
     <center>
-    <a href="{{ main_join_domain }}/u/namespaces" class="button">setup</a>
+    <a href="{{ domain_app }}/u/namespaces" class="button">setup</a>
     </center>
   </div>
   &nbsp;
@@ -96,7 +96,7 @@
 
   {% else %}
 
-  <a href="{{ main_join_domain }}/join-or-log-in">join-or-log-in</a>
+  <a href="{{ domain_app }}/join-or-log-in">join-or-log-in</a>
 
   {%- endif %}
 {%- endblock %}
