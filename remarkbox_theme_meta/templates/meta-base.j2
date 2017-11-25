@@ -40,7 +40,7 @@
       <a class="navlink" href="https://meta.remarkbox.com">Meta</a>
       {%- if request.user %}
       {{ snippets.user_link(request.user, class='button') }}
-      <a class="button red" href="{{ domain_app }}/u/namespaces">setup</a>
+      <a class="button red" href="{{ domain_app }}/setup">setup</a>
       {%- else %}
       <a class="navlink" href="{{ domain_marketing }}#about">About</a>
       <a class="navlink" href="{{ domain_marketing }}#remarkbox-demo">Demo</a>
@@ -83,7 +83,7 @@
 
     <br/>
     <center>
-    <a href="{{ domain_app }}/u/namespaces" class="button">setup</a>
+    <a href="{{ domain_app }}/setup" class="button">setup</a>
     </center>
   </div>
   &nbsp;
