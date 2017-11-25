@@ -100,12 +100,11 @@ ul {
 
 /* alerts */
 #alerts {
-  width: 60%;
-  right: 40%;
-  margin: auto;
-  margin-right: -20%;
+  width: 100%;
   position: fixed;
+  top: 150px;
   z-index: 100;
+  text-align: center;
 }
 
 .close {
@@ -116,18 +115,38 @@ ul {
 .alert {
   text-align: center;
   color: #ffffff; 
-  font-weight: bold; 
-  border-radius: 6px;
   margin-bottom: 6px;
   padding: 6px;
+
+  /** not sure **/
+  border: 1px;
+  border-left: 0px;
+  border-right: 0px;
+  border-style: solid;
 }
 
-.alert-warning, .alert-error {
-  background-color: #CB0003;
+.alert-danger, .alert-error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
 }
 
-.alert-success, .alert-notice {
-  background-color: #517DA4;
+.alert-warning {
+    color: #856404;
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+}
+
+.alert-info, .alert-notice {
+    color: #0c5460;
+    background-color: #d1ecf1;
+    border-color: #bee5eb;
+}
+
+.alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
 }
 
 .navlogotiny {

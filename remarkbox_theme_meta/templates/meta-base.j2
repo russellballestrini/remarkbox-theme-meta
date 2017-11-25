@@ -104,6 +104,16 @@
     </div>
 </div>
 
+<div id="alerts">
+{%- for message, level in request.session.pop_flash() %}
+<div class="alert alert-{{level}}" onclick="this.style.display='none'" name="alert">
+    <label class="close js-only" alt="dismiss" title="Mark as read">X</label>
+    {{message}}
+</div>
+{%- endfor %}
+</div>
+
+
 {% if request.mode != 'embed' %}
 
 {% else %}
@@ -113,15 +123,6 @@
 <div class="container main" style="max-width: 960px">
 
   <div class="row">
-
-<div id="alerts">
-{%- for message, level in request.session.pop_flash() %}
-<div class="alert alert-{{level}}" onclick="this.style.display='none'" name="alert">
-    <label class="close js-only" alt="dismiss" title="Mark as read">X</label>
-    {{message}}
-</div>
-{%- endfor %}
-</div>
 
 <div class="main">
 {% block content %}
