@@ -127,11 +127,16 @@ li {
 }
 
 span.avoidwrap { 
-  display:inline-block;
+    display:inline-block;
 }
 
 .container {
     max-width: 860px;
+}
+
+.small-button {
+    height: 28px;
+    line-height: 28px;
 }
 
 /* mail chimp and red buttons */
