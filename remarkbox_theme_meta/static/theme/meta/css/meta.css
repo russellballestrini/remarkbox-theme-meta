@@ -139,6 +139,39 @@ span.avoidwrap {
     line-height: 28px;
 }
 
+.green-button {
+    background-color: #289E00;
+    border-color: #289E00;
+    color: #FFFFFF !important;
+}
+
+.red-button {
+    background-color: #AA0000;
+    border-color: #AA0000;
+    color: #FFFFFF !important;
+}
+
+.blue-button {
+    background-color: #005C9E;
+    border-color: #005C9E;
+    color: #FFFFFF !important;
+}
+
+button:hover {
+  opacity: .90;
+}
+
+#payment-form,
+.payment-card {
+    background-color: #fcf9f9;
+    padding: 10px 12px;
+    border-radius: 4px;
+  
+    box-shadow: 0 1px 3px 0 #e6ebf1;
+    -webkit-transition: box-shadow 150ms ease;
+    transition: box-shadow 150ms ease;
+}
+
 /* mail chimp and red buttons */
 
 #mc_embed_signup {
