@@ -45,8 +45,8 @@
       <a class="navlink" href="{{ domain_marketing }}#about">About</a>
       <a class="navlink" href="{{ domain_marketing }}#remarkbox-demo">Demo</a>
       <a class="navlink" href="{{ domain_marketing }}#plans">Plans</a>
-      <a class="button" href="{{ domain_app }}/join-or-log-in">Log in</a>
-      <a class="button red" href="{{ domain_app }}/join-or-log-in">Join</a>
+      <a class="button" href="{{ domain_app }}/join-or-log-in?return-to={{ request.path_url }}">Log in</a>
+      <a class="button red" href="{{ domain_app }}/join-or-log-in?return-to={{ request.path_url }}">Join</a>
       {%- endif %}
     </div>
 </div>
@@ -71,13 +71,14 @@
 
   <div id="my-namespaces-div" class="my-namespaces-div">
 
-  <a href="/">{{ request.domain }}</a>
-  <br/>
-
   {% for namespace in request.user.namespaces %}
-    {% if namespace.name != request.domain %}
-    <a href="{{ domain_app }}/ns/{{ namespace.name }}">{{ namespace.name }}</a>
-    <br/>
+    {% if namespace != request.namespace %}
+      {% if namespace.name == request.domain %}
+      <a href="/">{{ request.domain }}</a>
+      {% else %}
+      <a href="{{ domain_app }}/ns/{{ namespace.name }}">{{ namespace.name }}</a>
+      {% endif %}
+      <br/>
     {% endif %}
   {% endfor %}
 
@@ -96,7 +97,7 @@
 
   {% else %}
 
-  <a href="{{ domain_app }}/join-or-log-in">join-or-log-in</a>
+  <a href="{{ domain_app }}/join-or-log-in?return-to={{ request.path_url }}">join-or-log-in</a>
 
   {%- endif %}
 {%- endblock %}
