@@ -1,5 +1,13 @@
+:root {
+  --black: 0, 0, 0;
+  --white: 255, 255, 255;
+  --red: 170, 0 , 0;
+  --blue: 0, 170, 170;
+  --green: 0, 170, 85;
+}
+
 h1, h2, h3, h4, h5, h6 {
-    padding-top: 20px;
+    padding-top: 2rem;
 }
 
 a, a:link, a:visited {
@@ -32,7 +40,7 @@ blockquote {
     margin-bottom: 10px;
     margin-left: 15px;
     padding-left: 15px;
-    border-left: 4px solid #AA0000;
+    border-left: 4px solid rgb(var(--red));
 }
 
 li {
@@ -67,7 +75,7 @@ li {
     font-weight: bold;
     width: 100%;
     background-color: #ffffff;
-    border-top: solid 4px #AA0000;
+    border-top: solid 4px rgb(var(--red));
 }
 
 .nav {
@@ -86,7 +94,7 @@ li {
 }
 
 .redline {
-    border-top: solid 4px #AA0000;
+    border-top: solid 4px rgb(var(--red));
 }
 
 .has-docked-nav .navbar {
@@ -134,36 +142,51 @@ span.avoidwrap {
     max-width: 860px;
 }
 
-.small-button {
-    height: 28px;
-    line-height: 28px;
+/* I made a fiddle that could help with buttons and colors */
+/* https://jsfiddle.net/7nL0sfy0/ */
+
+.button-small,
+input.button-small {
+  height: 28px;
+  line-height: 28px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .green-button {
-    background-color: #289E00;
-    border-color: #289E00;
+    background-color: rgba(var(--green), .8);
+    border-color: rgba(var(--green), .8);
     color: #FFFFFF !important;
 }
 
 .red-button {
-    background-color: #AA0000;
-    border-color: #AA0000;
+    background-color: rgba(var(--red), .8);
+    border-color: rgba(var(--red), .8);
     color: #FFFFFF !important;
 }
 
 .blue-button {
-    background-color: #005C9E;
-    border-color: #005C9E;
+    background-color: rgba(var(--blue), .8);
+    border-color: rgba(var(--blue), .8);
     color: #FFFFFF !important;
 }
 
-button:hover {
-  opacity: .90;
+.button-white {
+  color: rgba(var(--black), .50);
+  border-color: rgba(var(--black), .30);
+  border-width: 1px;
+  background-color: rgba(var(--white), .60);
+}
+
+.button-white:hover {
+  color: rgba(var(--black), 0.8);
+  border-color: rgba(var(--black), 0.6);
+  background-color: rgba(var(--white), 1.0);
 }
 
 #payment-form,
 .payment-card {
-    background-color: #fcf9f9;
+    background-color: rgba(var(--white), .5);
     padding: 10px 12px;
     border-radius: 4px;
   

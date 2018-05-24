@@ -52,68 +52,60 @@
 </div>
 {% endif %}
 
-<div class="navother">
-    {% if request.mode != 'embed' %}
-    <div class="searchbox">
-      {% include 'snippets/search.j2' %}
-    </div>
-    {% endif %}
-    
-    <div id="remarkbox-menu">
+<div class="remarkbox-menu">
+  {%- block menu %}
+
+  <div class="home">
     <span class="avoidwrap">
     <a href="{{ domain_marketing }}" class="navlogolink"><img src="/static/img/remarkbox-logo.png" width="16px" class="shown-on-tablet navlogotiny"></a>
-    {%- block menu %}
     &nbsp;
     </span>
 
-  {%- if request.user.authenticated %}
-  <a href="{{ domain_app }}/u/namespaces" onclick="toggle('my-namespaces-div', 'my-namespaces-link', '&#9658 {{ request.namespace.name }}', '&#9662; &nbsp; {{ request.namespace.name }}'); return false;" id="my-namespaces-link"><span class="js-only">&#9658; </span>{{ request.namespace.name }}</a>
+    {{ snippets.namespace_home_uri(request.namespace) }} &nbsp; 
 
-  <div id="my-namespaces-div" class="my-namespaces-div">
+    {%- if request.user.authenticated %}
 
-  {% for namespace in request.user.namespaces %}
-    {% if namespace != request.namespace %}
-      {% if namespace.name == request.domain %}
-      <a href="/">{{ request.domain }}</a>
-      {% else %}
-      <a href="{{ domain_app }}/ns/{{ namespace.name }}">{{ namespace.name }}</a>
-      {% endif %}
+    <a href="{{ domain_app }}/u/namespaces" onclick="toggle('my-namespaces-div', 'my-namespaces-link', '(switch)', '(switch)'); return false;" id="my-namespaces-link">(switch)</a>
+
+    <div id="my-namespaces-div" class="my-namespaces-div">
+
+    {% for namespace in request.user.namespaces %}
+      {% if namespace != request.namespace %}
+      {{ snippets.namespace_home_uri(namespace) }}
       <br/>
-    {% endif %}
-  {% endfor %}
+      {% endif %}
+    {% endfor %}
 
-    <br/>
-    <center>
-    <a href="{{ domain_app }}/setup" class="button">setup</a>
-    </center>
-  </div>
-  &nbsp;
-  | 
-  &nbsp;
-
-  <span class="avoidwrap">
-  {{ snippets.user_link(request.user) }} <a href="/log-out">[log out]</a>
-  </span>
-
-  {% else %}
-
-  <a href="{{ domain_app }}/join-or-log-in?return-to={{ request.path_url }}">join-or-log-in</a>
-
-  {%- endif %}
-{%- endblock %}
-
+      <br/>
+      <center>
+      <a href="{{ domain_app }}/setup" class="button">setup</a>
+      </center>
     </div>
+    &nbsp;
+    {%- endif %}
+
+  </div> <!-- end home -->
+
+  <div class="search">
+  {% if request.mode != 'embed' %}
+    {% include 'snippets/search.j2' %}
+  {% endif %}
+  </div>
+
+  <div class="user">
+  {%- if request.user.authenticated %}
+    <span class="avoidwrap">
+    {{ snippets.user_link(request.user) }} <a href="/log-out">[log out]</a>
+    </span>
+  {% else %}
+    <a href="{{ domain_app }}/join-or-log-in?return-to={{ request.path_url }}">join-or-log-in</a>
+  {%- endif %}
+  </div>
+
+{%- endblock %}
 </div>
 
-<div id="alerts">
-{%- for message, level in request.session.pop_flash() %}
-<div class="alert alert-{{level}}" onclick="this.style.display='none'" name="alert">
-    <label class="close js-only" alt="dismiss" title="Mark as read">X</label>
-    {{message}}
-</div>
-{%- endfor %}
-</div>
-
+{% include 'snippets/flash-alerts.j2' %}
 
 {% if request.mode != 'embed' %}
 
