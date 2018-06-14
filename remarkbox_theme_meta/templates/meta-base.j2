@@ -2,28 +2,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>{% block title %}{{ request.domain }}{% endblock %}</title>
+  <title>{% block title %}{{ request.app_domain }}{% endblock %}</title>
   <meta charset="utf-8" />
  
   <!-- this makes mobile pretty...  -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#D40000">
 
-  {% include 'snippets/stylesheet-includes.j2' %}
-
+{% include 'snippets/stylesheet-includes.j2' %}
   <link rel="stylesheet" href="/static/theme/meta/css/normalize.css">
   <link rel="stylesheet" href="/static/theme/meta/css/skeleton.css">
   <link rel="stylesheet" href="/static/theme/meta/css/meta.css">
   <link rel="stylesheet" href="/static/theme/meta/css/diff.css">
 
-  {% include 'snippets/javascript-includes.j2' %}
+{% include 'snippets/javascript-includes.j2' %}
   
 </head>
 
 <body class="remarkbox-body has-docked-nav">
-
-{% set domain_app = request.app.domain_app | default("") %}
-{% set domain_marketing = request.app.domain_marketing | default("/") %}
 
 <noscript>
   <style>
@@ -33,20 +29,20 @@
 
 {% if request.mode != 'embed' %}
 <div class="navbar hidden-on-tablet">
-    <a href="{{ domain_marketing }}" class="navlogolink"><img src="/static/theme/meta/img/remarkbox-minified.png" class="navlogo" alt="Remarkbox Logo" /></a>
+    <a href="{{ request.marketing_url }}" class="navlogolink"><img src="/static/theme/meta/img/remarkbox-minified.png" class="navlogo" alt="Remarkbox Logo" /></a>
     
     <div class="navlinks">
       <a class="navlink" href="https://faq.remarkbox.com">Faq</a>
       <a class="navlink" href="https://meta.remarkbox.com">Meta</a>
       {%- if request.user %}
       {{ snippets.user_link(request.user, class='button') }}
-      <a class="button red" href="{{ domain_app }}/setup">setup</a>
+      <a class="button red" href="{{ request.app_url }}/setup">setup</a>
       {%- else %}
-      <a class="navlink" href="{{ domain_marketing }}#about">About</a>
-      <a class="navlink" href="{{ domain_marketing }}#remarkbox-demo">Demo</a>
-      <a class="navlink" href="{{ domain_marketing }}#plans">Plans</a>
-      <a class="button" href="{{ domain_app }}/join-or-log-in?return-to={{ request.path_url }}">Log in</a>
-      <a class="button red" href="{{ domain_app }}/join-or-log-in?return-to={{ request.path_url }}">Join</a>
+      <a class="navlink" href="{{ request.marketing_url }}#about">About</a>
+      <a class="navlink" href="{{ request.marketing_url }}#remarkbox-demo">Demo</a>
+      <a class="navlink" href="{{ request.marketing_url }}#plans">Plans</a>
+      <a class="button" href="{{ request.app_url }}/join-or-log-in?return-to={{ request.path_url }}">Log in</a>
+      <a class="button red" href="{{ request.app_url }}/join-or-log-in?return-to={{ request.path_url }}">Join</a>
       {%- endif %}
     </div>
 </div>
@@ -57,7 +53,7 @@
 
   <div class="home">
     <span class="avoidwrap">
-    <a href="{{ domain_marketing }}" class="navlogolink"><img src="/static/img/remarkbox-logo.png" width="16px" class="shown-on-tablet navlogotiny"></a>
+    <a href="{{ request.marketing_url }}" class="navlogolink"><img src="/static/img/remarkbox-logo.png" width="16px" class="shown-on-tablet navlogotiny"></a>
     &nbsp;
     </span>
 
@@ -65,7 +61,7 @@
 
     {%- if request.user.authenticated and request.user.namespaces %}
 
-    <a href="{{ domain_app }}/u/namespaces" onclick="toggle('my-namespaces-div', 'my-namespaces-link', '(switch)', '(switch)'); return false;" id="my-namespaces-link">(switch)</a>
+    <a href="{{ request.app_url }}/u/namespaces" onclick="toggle('my-namespaces-div', 'my-namespaces-link', '(switch)', '(switch)'); return false;" id="my-namespaces-link">(switch)</a>
 
     <div id="my-namespaces-div" class="my-namespaces-div">
 
@@ -78,7 +74,7 @@
 
       <br/>
       <center>
-      <a href="{{ domain_app }}/setup" class="button">setup</a>
+      <a href="{{ request.app_url }}/setup" class="button">setup</a>
       </center>
     </div>
     &nbsp;
@@ -98,7 +94,7 @@
     {{ snippets.user_link(request.user) }} <a href="/log-out">[log out]</a>
     </span>
   {% else %}
-    <a href="{{ domain_app }}/join-or-log-in?return-to={{ request.path_url }}">join-or-log-in</a>
+    <a href="{{ request.app_url }}/join-or-log-in?return-to={{ request.path_url }}">join-or-log-in</a>
   {%- endif %}
   </div>
 
