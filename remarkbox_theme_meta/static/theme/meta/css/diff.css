@@ -162,6 +162,14 @@ div.container.main {
   margin-top: 180px;
 }
 
+.nav-extra {
+  float: right;
+}
+
+form {
+  margin-bottom: 0px;
+}
+
 pre, .MathJax_Display {
   background-color: #fcf9f9;
   padding: 15px;
