@@ -150,6 +150,11 @@ select {
     max-width: 860px;
 }
 
+
+input, textarea, select, fieldset {
+  margin-bottom: 0px;
+}
+
 /* I made a fiddle that could help with buttons and colors */
 /* https://jsfiddle.net/7nL0sfy0/ */
 
@@ -230,8 +235,15 @@ input.button-small {
 }
 
 @media screen and (max-width:568px) {
-  .hidden-on-phone {display: none} 
-  .shown-on-phone {display: block} 
+  .hidden-on-phone {display: none;}
+  .shown-on-phone {display: block;}
+  button,
+  input[type="submit"],
+  input[type="button"],
+  .button,
+  .button-small {
+    font-size: .80rem; padding: .80rem; height: 10px; line-height: 5px;
+  }
 }  
 
 @media screen and (max-width:750px) {
