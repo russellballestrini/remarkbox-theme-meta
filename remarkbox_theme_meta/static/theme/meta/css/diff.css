@@ -2,10 +2,7 @@ h2 {
     font-size: 3.0rem;
 }
 
-a, a:visited, a:hover {
-    color: #292929;
-}
-
+/* some reason this is needed */
 a:hover, a.navlogolink, a.navlogolink:visited {
     opacity: 1.0;
 }
@@ -13,13 +10,6 @@ a:hover, a.navlogolink, a.navlogolink:visited {
 a.button {
     opacity: 1.0;
 }
-
-/*
-button {
-    height: 28px;
-    line-height: 28px;
-}
-*/
 
 button.link {
     letter-spacing: unset;
