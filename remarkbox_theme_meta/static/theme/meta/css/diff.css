@@ -14,6 +14,9 @@ a.button {
 button.link {
     letter-spacing: unset;
     text-transform: unset;
+    line-height: 12px;
+    height: auto;
+    margin: 0px;
 }
 
 .navbar a, .navbar a:visited, .navbar a:hover {
@@ -78,57 +81,6 @@ ul {
     list-style: outside;
 }
 
-/* alerts */
-#alerts {
-  width: 100%;
-  position: fixed;
-  top: 150px;
-  z-index: 100;
-  text-align: center;
-}
-
-.close {
-  margin-right: 10px;
-  float: right;
-}
-
-.alert {
-  text-align: center;
-  color: #ffffff; 
-  padding: 6px;
-  padding-top: 10px;
-
-  /** not sure **/
-  border: 1px;
-  border-left: 0px;
-  border-right: 0px;
-  border-style: solid;
-}
-
-.alert-danger, .alert-error {
-    color: #721c24;
-    background-color: #f8d7da;
-    border-color: #f5c6cb;
-}
-
-.alert-warning {
-    color: #856404;
-    background-color: #fff3cd;
-    border-color: #ffeeba;
-}
-
-.alert-info, .alert-notice {
-    color: #0c5460;
-    background-color: #d1ecf1;
-    border-color: #bee5eb;
-}
-
-.alert-success {
-    color: #155724;
-    background-color: #d4edda;
-    border-color: #c3e6cb;
-}
-
 .navlogotiny {
   vertical-align: middle;
   padding-left: 10px;
@@ -175,6 +127,18 @@ pre, .MathJax_Display {
   padding-bottom: 9px;
 }
 
+#alerts {
+  width: 100%;
+  position: fixed;
+  top: 64px;
+}
+
+@media screen and (min-width:750px) {
+  #alerts {
+    top: 145px;
+  }
+}
+
 @media screen and (max-width:750px) {
   .remarkbox-menu {
     top: 0px;
@@ -197,6 +161,7 @@ pre, .MathJax_Display {
 @media screen and (max-width:568px) {
   div.container.main {
     margin-top: 80px;
+    padding-left: 12px;
+    padding-right: 12px;
   }
 }
-
