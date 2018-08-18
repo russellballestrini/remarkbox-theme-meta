@@ -1,0 +1,60 @@
+{%- import 'snippets/snippets.j2' as snippets with context -%}
+{% include 'snippets/owner-key-comment.j2' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>{% block title %}{{ request.app_domain }}{% endblock %}</title>
+  <meta charset="utf-8" />
+
+  <!-- this makes mobile pretty...  -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#D40000">
+
+{% include 'snippets/stylesheet-includes.j2' %}
+  <link rel="stylesheet" href="/static/theme/meta/css/normalize.css">
+  <link rel="stylesheet" href="/static/theme/meta/css/skeleton.css">
+  <link rel="stylesheet" href="/static/theme/meta/css/meta.css">
+  <link rel="stylesheet" href="/static/theme/meta/css/diff.css">
+
+{% include 'snippets/javascript-includes.j2' %}
+
+</head>
+
+<body class="remarkbox-body has-docked-nav">
+
+<noscript>
+  <style>
+    .js-only {display: none;}
+  </style>
+</noscript>
+
+<style>
+#alerts {
+  position: relative;
+  top: 0px;
+}
+</style>
+
+<div class="container main" style="max-width: 430px; margin-top: 90px;">
+
+  <center>
+  <a href="{{ request.marketing_url }}" style="opacity: 1.0;"><img src="/static/theme/meta/img/remarkbox-minified.png" alt="Remarkbox Logo" style="width: 320px; margin-bottom: 50px;"/></a>
+  </center>
+
+  {% include 'snippets/flash-alerts.j2' %}
+
+  <div class="row">
+
+    <div class="main">
+    {% block content %}
+    {% endblock %}
+    </div>
+
+  <!-- end of row -->
+  </div>
+
+<!-- end of container -->
+</div>
+
+</body>
+</html>

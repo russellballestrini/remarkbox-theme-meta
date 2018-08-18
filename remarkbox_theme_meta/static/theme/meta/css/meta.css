@@ -192,33 +192,33 @@ input.button-small {
 
 .green-button {
     background-color: rgba(var(--green), .8);
-    border-color: rgba(var(--green), .8);
+    border-color: rgba(var(--green), .8) !important;
     color: #FFFFFF !important;
 }
 
 .red-button {
     background-color: rgba(var(--red), .8);
-    border-color: rgba(var(--red), .8);
+    border-color: rgba(var(--red), .8) !important;
     color: #FFFFFF !important;
 }
 
 .blue-button {
     background-color: rgba(var(--blue), .8);
-    border-color: rgba(var(--blue), .8);
+    border-color: rgba(var(--blue), .8) !important;
     color: #FFFFFF !important;
 }
 
 .button-white {
-  color: rgba(var(--black), .50);
-  border-color: rgba(var(--black), .30);
-  border-width: 1px;
   background-color: rgba(var(--white), .60);
+  border-color: rgba(var(--black), .30) !important;
+  color: rgba(var(--black), .50) !important;
+  border-width: 1px;
 }
 
 .button-white:hover {
-  color: rgba(var(--black), 0.8);
-  border-color: rgba(var(--black), 0.6);
   background-color: rgba(var(--white), 1.0);
+  border-color: rgba(var(--black), 0.6) !important;
+  color: rgba(var(--black), 0.8) !important;
 }
 
 #payment-form,
@@ -239,7 +239,7 @@ input.button-small {
 }
 #mc_embed_signup .button, .red {
     background-color: #AA0000;
-    border-color: #AA0000;
+    border-color: #AA0000 !important;
     color: #FFFFFF !important;
 }
 #mc_embed_signup .button:hover, .red:hover {
