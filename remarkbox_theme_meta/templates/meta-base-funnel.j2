@@ -33,12 +33,15 @@
   position: relative;
   top: 0px;
 }
+.alert {
+  border-radius: 8px;
+}
 </style>
 
-<div class="container main" style="max-width: 430px; margin-top: 90px;">
+<div class="container main" style="max-width: 340px; margin-top: 60px;">
 
   <center>
-  <a href="{{ request.marketing_url }}" style="opacity: 1.0;"><img src="/static/theme/meta/img/remarkbox-minified.png" alt="Remarkbox Logo" style="width: 320px; margin-bottom: 50px;"/></a>
+  <a href="{{ request.marketing_url }}" style="opacity: 1.0;"><img src="/static/theme/meta/img/remarkbox-minified.png" alt="Remarkbox Logo" style="width: 100%; margin-bottom: 30px;"/></a>
   </center>
 
   {% include 'snippets/flash-alerts.j2' %}
