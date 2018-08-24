@@ -37,49 +37,6 @@
 }
 body {
   background-color: #f8f5f5;
-  overflow-x: hidden;
-  font-size: 1.0em;
-  line-height: 1.6;
-  font-weight: 400;
-  font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #222;
-}
-h1, h2, h3, h4, h5, h6 {
-    margin-top: 0;
-    font-weight: 300;
-}
-h1 {font-size: 3.00rem;}
-h2 {font-size: 2.50rem;}
-h3 {font-size: 2.00rem;}
-h4 {font-size: 1.75rem;}
-h5 {font-size: 1.50rem;}
-h6 {font-size: 1.25rem;}
-.funnel {
-  margin-top: 60px;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 340px;
-}
-
-section.step-1,
-section.step-2,
-section.step-3,
-section.step-4,
-section.active-card,
-section.new-card,
-section.payment-card
-{
-  background-color: white;
-  padding: 10px 12px;
-  border-radius: 4px;
-  border: 1px solid transparent;
-  box-shadow: 0 1px 3px 0 #e6ebf1;
-  -webkit-transition: box-shadow 150ms ease;
-  transition: box-shadow 150ms ease;
-  text-align: center;
-}
-section.step-4 {
-  text-align: left;
 }
 button.green-button, button.red-button, input.red-button {
   background-color: rgba(var(--red), .8);
@@ -99,11 +56,11 @@ button.green-button {
   position: relative;
   top: 0px;
 }
-
-input#namespace-domain {
+input#email_input {
   margin-bottom: 10px;
   text-align: center;
 }
+
 </style>
 
   {% include 'snippets/flash-alerts.j2' %}
@@ -112,7 +69,7 @@ input#namespace-domain {
 
 
   <center>
-  <a href="{{ request.marketing_url }}" style="opacity: 1.0;"><img src="/static/theme/meta/img/remarkbox-minified.png" alt="Remarkbox Logo" style="width: 100%; margin-bottom: 30px;"/></a>
+  <a href="{{ request.app_url }}" style="opacity: 1.0;"><img src="/static/theme/meta/img/remarkbox-minified.png" alt="Remarkbox Logo" style="width: 100%; margin-bottom: 30px;"/></a>
   </center>
 
   <div class="content">
