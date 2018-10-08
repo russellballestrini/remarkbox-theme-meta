@@ -91,16 +91,6 @@
   {% endif %}
   </div>
 
-  <div class="user">
-  {%- if request.user.authenticated %}
-    <span class="avoidwrap">
-    {{ snippets.user_link(request.user) }} <a href="/log-out">[log out]</a>
-    </span>
-  {% else %}
-    <a href="{{ request.app_url }}/join-or-log-in?return-to={{ request.path_url }}">join-or-log-in</a>
-  {%- endif %}
-  </div>
-
 </nav>
 
 {% endif %}

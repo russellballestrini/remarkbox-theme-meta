@@ -160,8 +160,12 @@ pre, .MathJax_Display {
 
 @media screen and (max-width:568px) {
   div.container.main {
-    margin-top: 80px;
+    margin-top: 60px;
     padding-left: 12px;
     padding-right: 12px;
+  }
+
+  div.namespace-description{
+    text-align: center;
   }
 }
