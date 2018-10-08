@@ -49,6 +49,8 @@
 </div>
 {% endif %}
 
+{% if not request.saas_home %}
+
 <nav class="remarkbox-menu">
 
   <div class="home">
@@ -100,6 +102,8 @@
   </div>
 
 </nav>
+
+{% endif %}
 
 {% include 'snippets/flash-alerts.j2' %}
 
