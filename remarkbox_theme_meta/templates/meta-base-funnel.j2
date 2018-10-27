@@ -65,8 +65,15 @@ input#email_input {
 
   {% include 'snippets/flash-alerts.j2' %}
 
-<div class="funnel" role="main">
+<p style="text-align: right; padding-right: 10px;">
+<a href="https://faq.remarkbox.com">FAQ</a>
+&nbsp; 
+&nbsp; 
+&nbsp; 
+<a href="{{ request.marketing_url }}">Home</a>
+</p>
 
+<div class="funnel" role="main">
 
   <center>
   <a href="{{ request.app_url }}" style="opacity: 1.0;"><img src="/static/theme/meta/img/remarkbox-minified.png" alt="Remarkbox Logo" style="width: 100%; margin-bottom: 30px;"/></a>
