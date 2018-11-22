@@ -37,7 +37,8 @@
       <a class="navlink" href="https://faq.remarkbox.com">Faq</a>
       <a class="navlink" href="https://meta.remarkbox.com">Meta</a>
       {%- if request.user %}
-      {{ snippets.user_link(request.user, class='button') }}
+      {{ snippets.user_avatar_link(request.user, class="avatar-nav") }}
+
       <a class="button red" href="{{ request.app_url }}/setup">setup</a>
       {%- else %}
       <a class="navlink" href="{{ request.marketing_url }}#about">About</a>

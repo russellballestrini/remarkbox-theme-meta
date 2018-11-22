@@ -73,6 +73,10 @@ button.link {
   padding-top: 30px;
 }
 
+.avatar-nav {
+  margin-right: 16px;
+}
+
 ol, ul {
     padding-left: 40px;
 }
