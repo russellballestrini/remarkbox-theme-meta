@@ -37,7 +37,7 @@
       <a class="navlink" href="https://faq.remarkbox.com">Faq</a>
       <a class="navlink" href="https://meta.remarkbox.com">Meta</a>
       {%- if request.user %}
-      {{ snippets.user_avatar_link(request.user, class="avatar-nav") }}
+      {{ snippets.user_avatar_link(request.user, 40, class="avatar-nav") }}
 
       <a class="button red" href="{{ request.app_url }}/setup">setup</a>
       {%- else %}
