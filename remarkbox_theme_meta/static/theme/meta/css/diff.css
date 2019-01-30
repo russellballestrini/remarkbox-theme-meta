@@ -45,7 +45,7 @@ button.link {
 .remarkbox-menu {
     width: 100%;
     position: fixed;
-    top: 94px;
+    top: 85px;
     left: 0;
     background-color: #fcf9f9;
 }
@@ -74,7 +74,7 @@ button.link {
 }
 
 .avatar-nav {
-  margin-right: 16px;
+  margin-left: 16px;
 }
 
 ol, ul {
