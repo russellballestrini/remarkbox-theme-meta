@@ -36,16 +36,17 @@
       <a class="navlink" href="{{ request.marketing_url }}">Home</a>
       <a class="navlink" href="https://faq.remarkbox.com">Faq</a>
       <a class="navlink" href="https://meta.remarkbox.com">Meta</a>
-      {%- if request.user %}
-      {{ snippets.user_avatar_link(request.user, 40, class="avatar-nav") }}
 
+      {%- if request.user %}
       <a class="button red" href="{{ request.app_url }}/setup">setup</a>
+      {{ snippets.user_avatar_link(request.user, 40, class="avatar-nav") }}
       {%- else %}
+
       <a class="navlink" href="{{ request.marketing_url }}#about">About</a>
       <a class="navlink" href="{{ request.marketing_url }}#remarkbox-demo">Demo</a>
       <a class="navlink" href="{{ request.marketing_url }}#plans">Plans</a>
-      <a class="button" href="{{ request.app_url }}/join-or-log-in?return-to={{ request.path_url }}">Log in</a>
       <a class="button red" href="{{ request.app_url }}/setup">setup</a>
+      <a class="button" href="{{ request.app_url }}/join-or-log-in?return-to={{ request.path_url }}">Log in</a>
       {%- endif %}
     </div>
 </div>
