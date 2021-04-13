@@ -10,7 +10,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="remarkbox_theme_meta",
-    version="0.2.1",
+    version="0.2.2",
     description="remarkbox theme for meta and faq",
     classifiers=[
         "Programming Language :: Python",
@@ -24,6 +24,23 @@ setup(
     keywords="remarkbox theme for meta and faq",
     packages=find_packages(),
     include_package_data=True,
+    package_data={
+        "": [
+            "*.ico",
+            "*.png",
+            "*.css",
+            "*.gif",
+            "*.jpg",
+            "*.pt",
+            "*.txt",
+            "*.mak",
+            "*.mako",
+            "*.js",
+            "*.html",
+            "*.xml",
+            "*.j2",
+        ]
+    },
     zip_safe=False,
     entry_points={"remarkbox.themes": ["meta = remarkbox_theme_meta"]},
 )
